@@ -14,7 +14,7 @@ This PowerShell script is designed to convert all `.opus` audio files located in
 ### 1. Download and Install FFmpeg via PowerShell
 Use PowerShell to download and install **FFmpeg**. The following steps guide you through downloading the FFmpeg executable and adding it to your system’s PATH so it can be accessed globally:
 
-powershell
+```powershell
 # Download the FFmpeg zip package
 Invoke-WebRequest -Uri https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip -OutFile ffmpeg.zip
 
@@ -27,28 +27,4 @@ $ffmpegPath = (Get-Item ".\ffmpeg\ffmpeg-*-essentials_build\bin").FullName
 
 # Verify FFmpeg installation
 ffmpeg -version
-
-
-# Define source and destination folders
-$sourceFolder = "W:\opus"
-$destinationFolder = "W:\convertido"
-
-# Get all .opus files from the source folder
-$files = Get-ChildItem -Path $sourceFolder -Filter *.opus
-
-# Get the total number of files to track progress
-$totalFiles = $files.Count
-$currentFile = 0
-
-# Create the destination folder if it doesn't exist
-If (!(Test-Path -Path $destinationFolder)) {
-    New-Item -ItemType Directory -Path $destinationFolder
-}
-
-# Loop through each .opus file, convert to .mp3, and move to destination
-foreach ($file in $files) {
-    $currentFile++
-    
-    # Define output file path for the .mp3 file
-  
 
