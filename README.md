@@ -15,16 +15,13 @@ This PowerShell script is designed to convert all `.opus` audio files located in
 Use PowerShell to download and install **FFmpeg**. The following steps guide you through downloading the FFmpeg executable and adding it to your system’s PATH so it can be accessed globally:
 
 ```powershell
-# Download the FFmpeg zip package
+
 Invoke-WebRequest -Uri https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip -OutFile ffmpeg.zip
 
-# Extract the zip package
 Expand-Archive -Path ffmpeg.zip -DestinationPath .\ffmpeg
 
-# Add FFmpeg to the system PATH
 $ffmpegPath = (Get-Item ".\ffmpeg\ffmpeg-*-essentials_build\bin").FullName
 [System.Environment]::SetEnvironmentVariable("Path", $env:Path + ";$ffmpegPath", [System.EnvironmentVariableTarget]::Machine)
 
-# Verify FFmpeg installation
 ffmpeg -version
 
