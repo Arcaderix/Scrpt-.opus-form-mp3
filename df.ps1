@@ -1,6 +1,6 @@
 
-$sourceFolder = "W:\opus"
-$destinationFolder = "W:\convertido"
+$sourceFolder = "W:\opus" # carpeta de opus 
+$destinationFolder = "W:\convertido" # carpeta de destino convertido 
 
 $files = Get-ChildItem -Path $sourceFolder -Filter *.opus
 
